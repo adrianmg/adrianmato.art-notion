@@ -1,6 +1,6 @@
 # Deno Project
 
-This is a minimal Deno project.
+A minimal Deno project that fetches download stats from the database behind https://adrianmato.art and stores them in a Notion table.
 
 ## Scripts
 
