@@ -12,7 +12,7 @@ A minimal Deno project that fetches download stats from the database behind http
 ## Project Structure
 
 - `src/main.ts` — Entry point
-- `src/main_test.ts` — Tests
+- `src/test.ts` — Tests (DB + Notion)
 - `src/utils.ts` — Environment loader
 - `deno.json` — Deno configuration
 - `README.md` — Project info

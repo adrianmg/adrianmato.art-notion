@@ -7,6 +7,6 @@
   },
   "tasks": {
     "start": "deno run --allow-env --allow-net --allow-read src/main.ts",
-    "test": "deno test --allow-env --allow-net --allow-read src/"
+    "test": "deno test --allow-env --allow-net --allow-read src/test.ts"
   }
 }

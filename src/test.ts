@@ -1,7 +1,6 @@
 import { assert, assertExists } from "jsr:@std/assert";
 import { retrieveDataFromDB, fetchStatistics } from "./db.ts";
-
-
+import { testNotionConnection } from "./notion.ts";
 
 Deno.test("retrieveDataFromDB returns expected structure", async () => {
   const data = await retrieveDataFromDB();
@@ -16,7 +15,6 @@ Deno.test("retrieveDataFromDB returns expected structure", async () => {
   }
 });
 
-
 Deno.test("fetchStatistics returns valid JSON response with expected structure", async () => {
   const response = await fetchStatistics();
   const json = await response.json();
@@ -29,4 +27,9 @@ Deno.test("fetchStatistics returns valid JSON response with expected structure",
     assertExists(record.downloads, "downloads should exist");
     assert(typeof record.downloads === "number", "downloads should be a number");
   }
+});
+
+Deno.test("Notion connection works", async () => {
+  const result = await testNotionConnection();
+  assert(result, "Should connect to Notion API");
 });
