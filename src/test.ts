@@ -1,6 +1,6 @@
 import { assert, assertExists } from "jsr:@std/assert";
 import { retrieveDataFromDB, fetchStatistics } from "./db.ts";
-import { testNotionConnection } from "./notion.ts";
+import { testNotionConnection, syncDBToNotion } from "./notion.ts";
 
 Deno.test("retrieveDataFromDB returns expected structure", async () => {
   const data = await retrieveDataFromDB();
@@ -32,4 +32,11 @@ Deno.test("fetchStatistics returns valid JSON response with expected structure",
 Deno.test("Notion connection works", async () => {
   const result = await testNotionConnection();
   assert(result, "Should connect to Notion API");
+});
+
+Deno.test("Sync DB to Notion works", async () => {
+  // This will clean existing pages from today and write fresh data
+  await syncDBToNotion();
+  // Test passes if no error is thrown - function handles clearing and writing
+  assert(true, "Should sync DB to Notion without errors");
 });
