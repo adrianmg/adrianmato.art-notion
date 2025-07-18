@@ -15,8 +15,10 @@ A minimal Deno project that fetches download stats from the database behind http
 ## Project structure
 
 - `src/main.ts` — Entry point
+- `src/notion.ts` — Notion API calls
 - `src/test.ts` — Tests (DB + Notion)
 - `src/utils.ts` — Environment loader
+- `.github/workflows/notion-daily.yml` — Syncs data daily via GitHub Actions
 - `deno.json` — Deno configuration
 - `README.md` — Project info
 
