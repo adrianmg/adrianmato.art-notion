@@ -37,19 +37,13 @@ export async function writeMockStatToNotion() {
       parent: { database_id: NOTION_DATABASE_ID },
       properties: {
         slug: {
-          title: [
-            {
-              text: { content: "mock-slug" },
-            },
-          ],
+          title: [{ text: { content: "mock-slug" } }],
         },
         downloads: {
           number: 123,
         },
         "date": {
-          date: {
-            start: new Date().toISOString(),
-          },
+          date: { start: new Date().toISOString() },
         },
       },
     });
