@@ -2,7 +2,7 @@ name: Tests
 
 on:
   push:
-  workflow_dispatch:
+  workflow_dispatch: {}
 
 jobs:
   test:
@@ -15,6 +15,7 @@ jobs:
       DB_PASSWORD: ${{ secrets.DB_PASSWORD }}
       NOTION_API_KEY: ${{ secrets.NOTION_API_KEY }}
       NOTION_DATABASE_ID: ${{ secrets.NOTION_DATABASE_ID }}
+
     steps:
       - uses: actions/checkout@v4
 
