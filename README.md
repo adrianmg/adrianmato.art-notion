@@ -9,10 +9,26 @@ A minimal Deno project that fetches download stats from the database behind http
 - Lint: `deno lint`
 - Format: `deno fmt`
 
-## Project Structure
+## Project structure
 
 - `src/main.ts` — Entry point
 - `src/test.ts` — Tests (DB + Notion)
 - `src/utils.ts` — Environment loader
 - `deno.json` — Deno configuration
 - `README.md` — Project info
+
+## Environment variables
+To run the app and tests, set the following environment variables:
+
+```
+DB_USER: Database user
+DB_HOST: Database host
+DB_PORT: Database port
+DB_DATABASE: Database name
+DB_PASSWORD: Database password
+
+NOTION_API_KEY: Notion integration API keyptest
+NOTION_DATABASE_ID: Notion database ID
+```
+
+For GitHub Actions, add these as repository secrets in `Settings → Secrets and variables → Actions`.
