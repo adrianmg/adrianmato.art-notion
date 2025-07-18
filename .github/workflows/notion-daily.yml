@@ -1,0 +1,31 @@
+name: Sync DB to Notion
+
+on:
+  schedule:
+    - cron: '0 0 * * *' # Runs every day at midnight UTC
+  workflow_dispatch:
+
+jobs:
+  run-deno-main:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    env:
+      DB_USER: ${{ secrets.DB_USER || 'default' }}
+      DB_HOST: ${{ secrets.DB_HOST }}
+      DB_PORT: ${{ secrets.DB_PORT || '5432' }}
+      DB_DATABASE: ${{ secrets.DB_DATABASE }}
+      DB_PASSWORD: ${{ secrets.DB_PASSWORD }}
+      NOTION_API_KEY: ${{ secrets.NOTION_API_KEY }}
+      NOTION_DATABASE_ID: ${{ secrets.NOTION_DATABASE_ID }}
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Setup Deno
+        uses: denoland/setup-deno@v2
+        with:
+          deno-version: v2.x
+          cache: true
+
+      - name: Run main app
+        run: deno task start
