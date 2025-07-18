@@ -1,7 +1,7 @@
 import { Client } from "npm:@notionhq/client";
 import { loadEnv } from "./utils.ts";
 
-const { NOTION_API_KEY, NOTION_DB_ID } = await loadEnv();
+const { NOTION_API_KEY, NOTION_DATABASE_ID } = await loadEnv();
 const notion = new Client({ auth: NOTION_API_KEY });
 
 export async function testNotionConnection(): Promise<boolean> {
@@ -17,7 +17,7 @@ export async function testNotionConnection(): Promise<boolean> {
 
 async function testDatabaseAccess() {
   try {
-    const response = await notion.databases.retrieve({ database_id: NOTION_DB_ID });
+    const response = await notion.databases.retrieve({ database_id: NOTION_DATABASE_ID });
     // The title property is an array of rich text objects, but may not be typed
     console.log("Database access OK:", (response as any).title?.[0]?.plain_text || "Untitled");
     return true;
@@ -34,17 +34,10 @@ export async function writeToNotion(data: unknown[]) {
 export async function writeMockStatToNotion() {
   try {
     const response = await notion.pages.create({
-      parent: { database_id: NOTION_DB_ID },
+      parent: { database_id: NOTION_DATABASE_ID },
       properties: {
-        id: {
-          title: [
-            {
-              text: { content: "1" },
-            },
-          ],
-        },
         slug: {
-          rich_text: [
+          title: [
             {
               text: { content: "mock-slug" },
             },
@@ -53,7 +46,7 @@ export async function writeMockStatToNotion() {
         downloads: {
           number: 123,
         },
-        "created date": {
+        "date": {
           date: {
             start: new Date().toISOString(),
           },
@@ -70,4 +63,4 @@ export async function writeMockStatToNotion() {
 
 // await testNotionConnection();
 // await testDatabaseAccess();
-await writeMockStatToNotion();
+// await writeMockStatToNotion();

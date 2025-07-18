@@ -8,6 +8,6 @@ export function loadEnv() {
     DB_DATABASE: Deno.env.get("DB_DATABASE") ?? "",
     DB_PASSWORD: Deno.env.get("DB_PASSWORD") ?? "",
     NOTION_API_KEY: Deno.env.get("NOTION_API_KEY") ?? "",
-    NOTION_DB_ID: Deno.env.get("NOTION_DB_ID") ?? "",
+    NOTION_DATABASE_ID: Deno.env.get("NOTION_DATABASE_ID") ?? "",
   };
 }
