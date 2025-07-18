@@ -2,6 +2,9 @@
 
 A minimal Deno project that fetches download stats from the database behind https://adrianmato.art and stores them in a Notion table.
 
+<img width="1942" height="1483" alt="image" src="https://github.com/user-attachments/assets/2fa6e37d-7a60-41a3-9f4d-fc449ee91745" />
+
+
 ## Scripts
 
 - Start: `deno task start`
