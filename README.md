@@ -27,7 +27,7 @@ DB_PORT: Database port
 DB_DATABASE: Database name
 DB_PASSWORD: Database password
 
-NOTION_API_KEY: Notion integration API key
+NOTION_API_KEY: Notion integration API keyptest
 NOTION_DATABASE_ID: Notion database ID
 ```
 
